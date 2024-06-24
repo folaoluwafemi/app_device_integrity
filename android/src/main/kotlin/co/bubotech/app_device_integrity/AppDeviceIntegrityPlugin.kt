@@ -31,6 +31,7 @@ class AppDeviceIntegrityPlugin: FlutterPlugin, MethodCallHandler, ActivityAware 
       if (call.argument<Long>("gcp") != null) {
         challenge = call.argument<String>("challengeString").toString()
         var attestation: AppDeviceIntegrity = AppDeviceIntegrity(context,call.argument<Long>("gcp")!!,challenge)
+        println("AppDeviceIntegrity Request Made")
         attestation.integrityTokenResponse.addOnSuccessListener { response ->
           val integrityToken: String = response.token()
           result.success(integrityToken.toString())

@@ -34,7 +34,6 @@ class _MyAppState extends State<MyApp> {
     try {
       // String sessionId = await attestProvider.getSession();
       String sessionId = "3abcd48be9b0cf8513ff91688ba822493b0804d2f3bcc5d5";
-      log(sessionId.toString());
       if (Platform.isAndroid) {
         // int gpc = 0000000000; // YOUR GCP PROJECT ID IN ANDROID
         int gpc = 525354232116; // YOUR GCP PROJECT ID IN ANDROID

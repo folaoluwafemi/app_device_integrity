@@ -53,6 +53,8 @@ class AppDeviceIntegrity(context: Context, cloudProjectNumber: Long, nonceHex: S
 //
 //    // Convert the received hex nonce to a Base64 URL-safe encoded string
 //    private val nonce: String = Base64.encodeToString(hexStringToByteArray(nonceHex), Base64.URL_SAFE or Base64.NO_WRAP)
+    private val nonce: String = nonceHex
+
 
     // Create an instance of a manager
     private val integrityManager: IntegrityManager = IntegrityManagerFactory.create(context)
@@ -60,7 +62,7 @@ class AppDeviceIntegrity(context: Context, cloudProjectNumber: Long, nonceHex: S
     // Request the integrity token by providing a nonce
     val integrityTokenResponse: Task<IntegrityTokenResponse> = integrityManager.requestIntegrityToken(
             IntegrityTokenRequest.builder()
-                    .setNonce(nonceHex)
+                    .setNonce(nonce)
                     .setCloudProjectNumber(cloudProjectNumber)
                     .build()
     )

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:app_device_integrity_example/services/providers/attest_provider.dart';
 import 'package:flutter/material.dart';
@@ -31,14 +32,19 @@ class _MyAppState extends State<MyApp> {
     AttestProvider attestProvider = AttestProvider();
 
     try {
-      String sessionId = await attestProvider.getSession();
+      // String sessionId = await attestProvider.getSession();
+      String sessionId = "3abcd48be9b0cf8513ff91688ba822493b0804d2f3bcc5d5";
+      log(sessionId.toString());
       if (Platform.isAndroid) {
-        int gpc = 0000000000; // YOUR GCP PROJECT ID IN ANDROID
+        // int gpc = 0000000000; // YOUR GCP PROJECT ID IN ANDROID
+        int gpc = 525354232116; // YOUR GCP PROJECT ID IN ANDROID
         tokenReceived = await _appAttestationPlugin
             .getAttestationServiceSupport(challengeString: sessionId, gcp: gpc);
-        setState(() {
+        setState(() {T_5Foi6giSTsIBNLzvMXV
           _tokenExample = tokenReceived;
         });
+        log(_tokenExample.toString());
+
         return;
       }
       tokenReceived = await _appAttestationPlugin.getAttestationServiceSupport(

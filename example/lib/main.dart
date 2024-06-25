@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         int gpc = 525354232116; // YOUR GCP PROJECT ID IN ANDROID
         tokenReceived = await _appAttestationPlugin
             .getAttestationServiceSupport(challengeString: sessionId, gcp: gpc);
-        setState(() {T_5Foi6giSTsIBNLzvMXV
+        setState(() {
           _tokenExample = tokenReceived;
         });
         log(_tokenExample.toString());

@@ -37,22 +37,22 @@ import com.google.android.play.core.integrity.IntegrityManager
 import com.google.android.play.core.integrity.IntegrityManagerFactory
 import com.google.android.play.core.integrity.IntegrityTokenRequest
 
-class AppDeviceIntegrity(context: Context, cloudProjectNumber: Long, nonceHex: String) {
+class AppDeviceIntegrity(context: Context, cloudProjectNumber: Long, nonce: String) {
 
-    // Convert hex string to byte array
-    private fun hexStringToByteArray(hexString: String): ByteArray {
-        val len = hexString.length
-        val data = ByteArray(len / 2)
-        var i = 0
-        while (i < len) {
-            data[i / 2] = ((Character.digit(hexString[i], 16) shl 4) + Character.digit(hexString[i + 1], 16)).toByte()
-            i += 2
-        }
-        return data
-    }
-
-    // Convert the received hex nonce to a Base64 URL-safe encoded string
-    private val nonce: String = Base64.encodeToString(hexStringToByteArray(nonceHex), Base64.URL_SAFE or Base64.NO_WRAP)
+//    // Convert hex string to byte array
+//    private fun hexStringToByteArray(hexString: String): ByteArray {
+//        val len = hexString.length
+//        val data = ByteArray(len / 2)
+//        var i = 0
+//        while (i < len) {
+//            data[i / 2] = ((Character.digit(hexString[i], 16) shl 4) + Character.digit(hexString[i + 1], 16)).toByte()
+//            i += 2
+//        }
+//        return data
+//    }
+//
+//    // Convert the received hex nonce to a Base64 URL-safe encoded string
+//    private val nonce: String = Base64.encodeToString(hexStringToByteArray(nonceHex), Base64.URL_SAFE or Base64.NO_WRAP)
 
     // Create an instance of a manager
     private val integrityManager: IntegrityManager = IntegrityManagerFactory.create(context)

@@ -37,7 +37,7 @@ import com.google.android.play.core.integrity.IntegrityManager
 import com.google.android.play.core.integrity.IntegrityManagerFactory
 import com.google.android.play.core.integrity.IntegrityTokenRequest
 
-class AppDeviceIntegrity(context: Context, cloudProjectNumber: Long, nonce: String) {
+class AppDeviceIntegrity(context: Context, cloudProjectNumber: Long, nonceHex: String) {
 
 //    // Convert hex string to byte array
 //    private fun hexStringToByteArray(hexString: String): ByteArray {
@@ -60,7 +60,7 @@ class AppDeviceIntegrity(context: Context, cloudProjectNumber: Long, nonce: Stri
     // Request the integrity token by providing a nonce
     val integrityTokenResponse: Task<IntegrityTokenResponse> = integrityManager.requestIntegrityToken(
             IntegrityTokenRequest.builder()
-                    .setNonce(nonce)
+                    .setNonce(nonceHex)
                     .setCloudProjectNumber(cloudProjectNumber)
                     .build()
     )

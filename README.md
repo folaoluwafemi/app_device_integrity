@@ -1,4 +1,5 @@
 # App Device Integrity
+
 [![pub package](https://img.shields.io/pub/v/app_device_integrity)](https://pub.dev/packages/app_device_integrity)
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges)](./LICENSE)
 <a href="https://discord.gg/8GEp4dgM"><img src="https://img.shields.io/discord/765557403865186374.svg?logo=discord&color=blue" alt="Discord"></a>
@@ -8,7 +9,7 @@
 <hr>
 <hr>
 
-This plugin was created to make your app attestation more easy. It uses the Native Attestation Providers from Apple and Google, App Attest and Play Integrity respectively, to generate tokens to be decrypted by your Server to check if your app is being accessed by a reliable device.
+> This plugin was created to make your app attestation more easy. It uses the Native Attestation Providers from Apple and Google, App Attest and Play Integrity respectively, to generate tokens to be decrypted by your Server to check if your app is being accessed by a reliable device.
 
 ## How to Use It
 
@@ -29,6 +30,7 @@ To be more "precise", when you link you GCP Project to your app in Google Play C
 It's recommended to create environmental variable with the project ID to maintain your app, and project, integrity.
 
 ### How To Implement
+
 After you import the plugin to your project, implement the token generation using the following steps:
 
 ```dart
@@ -56,7 +58,7 @@ if (Platform.isAndroid) {
 
 tokenReceived = await _appAttestationPlugin  
     .getAttestationServiceSupport(challengeString: sessionId);
-      
+    
 return;
 ```
 
@@ -68,4 +70,3 @@ Feel comfortable to fork it, or clone it, and customize it, according to your bu
 For more information about App Attest and Play Integrity, you can access the docs from Apple and Google in the links bellow:<br>
 https://developer.apple.com/documentation/devicecheck/establishing-your-app-s-integrity
 https://developer.android.com/google/play/integrity
-
